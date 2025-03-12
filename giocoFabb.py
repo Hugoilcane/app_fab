@@ -66,12 +66,19 @@ class SecondPage(Screen):
     def __init__(self,**kwargs):
         super(SecondPage,self).__init__(**kwargs)
         loyaut=BoxLayout(orientation='vertical')
-        loyaut.add_widget(Button(text="torna alla prima pagina", on_press=self.ControlloRisposta_2))
+        Window.size=(360,640)
+        loyaut.size_hint=(0.8,0.9)
+        loyaut.pos_hint={'center_x':1, 'center_y':1}
+        loyaut.add_widget(Button(
+            text="torna alla prima pagina", 
+            size_hint=(None,None),
+            size=(100,50),
+            on_press=self.ControlloRisposta_2)
+        )
         self.add_widget(loyaut)
     
     def ControlloRisposta_2(self, instance):
-        data=self.testo.text
-        if(data=="hi"):
+        if(True):
             self.go_to_first_page(instance)
         else:
             self.testo.text="errore"
